@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Figuras de One Piece | AME Figures</title>
+    <meta name="description" content="Compra figuras de One Piece originales. Tenemos 15 productos disponibles. Envíos a todo Perú.">
+    <link rel="canonical" href="https://amefigures.github.io/AME/categorias/one-piece.html">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff6b00'>🐉</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <style>
+        .category-filters { max-width: 1400px; margin: 0 auto 30px; padding: 0 30px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .filter-btn { padding: 8px 20px; background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.3); border-radius: 30px; color: white; cursor: pointer; transition: all 0.3s; }
+        .filter-btn:hover, .filter-btn.active { background: #ff6b00; border-color: #ff6b00; }
+        .category-header { background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(255,107,0,0.2)); padding: 50px 30px; text-align: center; margin: 20px 30px 30px; border-radius: 20px; }
+        .category-header h1 { font-size: 2.5rem; margin-bottom: 15px; background: linear-gradient(135deg, #fff, #ffcc88); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .category-stats { display: inline-block; background: rgba(255,107,0,0.2); padding: 8px 20px; border-radius: 50px; }
+        .products-grid { max-width: 1400px; margin: 0 auto; padding: 0 30px 50px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
+        @media (max-width: 768px) { .category-header { margin: 15px 15px 20px; padding: 30px 20px; } .category-header h1 { font-size: 1.8rem; } .category-filters { padding: 0 15px; } .products-grid { padding: 0 15px 40px; gap: 15px; grid-template-columns: repeat(2, 1fr); } }
+        .breadcrumbs { padding: 20px 30px; font-size: 0.85rem; color: #aaa; max-width: 1400px; margin: 0 auto; }
+        .breadcrumbs a { color: #ff8c33; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="gradient-bg"></div>
+    
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-wrapper" onclick="window.location.href='../index.html'">
+                <div class="logo-icon"><i class="fas fa-dragon"></i></div>
+                <div class="logo-text"><h1>AME FIGURES</h1><p>Colección Premium</p></div>
+            </div>
+            <div class="cart-wrapper">
+                <div class="cart-button" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">Inicio</a> &gt;
+        <span>One Piece</span>
+    </div>
+    
+    <div class="category-header">
+        <h1><i class="fas fa-tag"></i> Figuras de One Piece</h1>
+        <p>Descubre nuestra colección exclusiva de figuras de One Piece. Calidad premium y envíos a todo Perú.</p>
+        <div class="category-stats"><i class="fas fa-box"></i> 15 productos disponibles</div>
+    </div>
+    
+    <div class="category-filters"><button class="filter-btn active" data-filter="todos">Todos (15)</button><button class="filter-btn" data-filter="figuras">Figuras</button><button class="filter-btn" data-filter="set">Sets</button><button class="filter-btn" data-filter="vehiculos">Vehículos</button></div>
+    
+    <div class="products-grid" id="productsGrid">
+        
+        <div class="product-card" data-tipo="figura">
+            <div class="product-badges">
+                
+                <span class="badge discount">-50%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-monkey-d-luffy-OP_FIG_058.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873660/OP_FIG_058.png?format=webp&quality=80" alt="One Piece - Monkey D. Luffy" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_FIG_058')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-monkey-d-luffy-OP_FIG_058.html'">One Piece - Monkey D. Luffy</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 35.00</span>
+                    <span class="inflated-price">S/ 52.50</span>
+                    <span class="discount-tag">-50%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_FIG_058')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_FIG_058')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_FIG_058')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-tipo="figura">
+            <div class="product-badges">
+                
+                <span class="badge discount">-20%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-luffy-flowing-cherry-OP_FIG_059.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873660/OP_FIG_059.png?format=webp&quality=80" alt="One Piece - Luffy Flowing Cherry" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_FIG_059')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-luffy-flowing-cherry-OP_FIG_059.html'">One Piece - Luffy Flowing Cherry</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 45.00</span>
+                    <span class="inflated-price">S/ 54.00</span>
+                    <span class="discount-tag">-20%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_FIG_059')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_FIG_059')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_FIG_059')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-tipo="figura">
+            <div class="product-badges">
+                
+                <span class="badge discount">-30%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-luffy-dios-del-sol-nika-gear-5-OP_FIG_060.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873660/OP_FIG_060.png?format=webp&quality=80" alt="One Piece - Luffy Dios del Sol Nika (Gear 5)" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_FIG_060')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-luffy-dios-del-sol-nika-gear-5-OP_FIG_060.html'">One Piece - Luffy Dios del Sol Nika (Gear 5)</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 24.00</span>
+                    <span class="inflated-price">S/ 31.20</span>
+                    <span class="discount-tag">-30%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_FIG_060')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_FIG_060')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_FIG_060')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-tipo="figura">
+            <div class="product-badges">
+                
+                <span class="badge discount">-40%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-luffy-y-shanks-OP_FIG_061.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873658/OP_FIG_061.png?format=webp&quality=80" alt="One Piece - Luffy y Shanks" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_FIG_061')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-luffy-y-shanks-OP_FIG_061.html'">One Piece - Luffy y Shanks</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 40.00</span>
+                    <span class="inflated-price">S/ 56.00</span>
+                    <span class="discount-tag">-40%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_FIG_061')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_FIG_061')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_FIG_061')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-tipo="figura">
+            <div class="product-badges">
+                
+                <span class="badge discount">-50%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-luffy-con-rostro-intercambiable-OP_FIG_062.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873656/OP_FIG_062.png?format=webp&quality=80" alt="One Piece - Luffy con Rostro Intercambiable" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_FIG_062')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-luffy-con-rostro-intercambiable-OP_FIG_062.html'">One Piece - Luffy con Rostro Intercambiable</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 59.00</span>
+                    <span class="inflated-price">S/ 88.50</span>
+                    <span class="discount-tag">-50%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_FIG_062')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_FIG_062')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_FIG_062')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-tipo="figura">
+            <div class="product-badges">
+                
+                <span class="badge discount">-20%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-monkey-d-luffy-gear-5-OP_FIG_063.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873621/OP_FIG_063.png?format=webp&quality=80" alt="One Piece - Monkey D. Luffy Gear 5" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_FIG_063')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-monkey-d-luffy-gear-5-OP_FIG_063.html'">One Piece - Monkey D. Luffy Gear 5</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 39.00</span>
+                    <span class="inflated-price">S/ 46.80</span>
+                    <span class="discount-tag">-20%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_FIG_063')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_FIG_063')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_FIG_063')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-tipo="figura">
+            <div class="product-badges">
+                
+                <span class="badge discount">-30%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-monkey-d-luffy-version-basica-OP_FIG_064.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873620/OP_FIG_064.png?format=webp&quality=80" alt="One Piece - Monkey D. Luffy (Versión Básica)" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_FIG_064')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-monkey-d-luffy-version-basica-OP_FIG_064.html'">One Piece - Monkey D. Luffy (Versión Básica)</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 30.00</span>
+                    <span class="inflated-price">S/ 39.00</span>
+                    <span class="discount-tag">-30%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_FIG_064')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_FIG_064')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_FIG_064')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-tipo="figura">
+            <div class="product-badges">
+                
+                <span class="badge discount">-40%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-luffy-gear-5-pose-de-batalla-OP_FIG_065.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873620/OP_FIG_065.png?format=webp&quality=80" alt="One Piece - Luffy Gear 5 Pose de Batalla" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_FIG_065')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-luffy-gear-5-pose-de-batalla-OP_FIG_065.html'">One Piece - Luffy Gear 5 Pose de Batalla</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 35.00</span>
+                    <span class="inflated-price">S/ 49.00</span>
+                    <span class="discount-tag">-40%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_FIG_065')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_FIG_065')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_FIG_065')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-tipo="figura">
+            <div class="product-badges">
+                
+                <span class="badge discount">-50%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-nami-OP_FIG_066.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873619/OP_FIG_066.png?format=webp&quality=80" alt="One Piece - Nami" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_FIG_066')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-nami-OP_FIG_066.html'">One Piece - Nami</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 35.00</span>
+                    <span class="inflated-price">S/ 52.50</span>
+                    <span class="discount-tag">-50%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_FIG_066')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_FIG_066')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_FIG_066')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-tipo="set">
+            <div class="product-badges">
+                <span class="badge set"><i class="fas fa-cubes"></i> SET</span>
+                <span class="badge discount">-20%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-set-de-6-figuras-OP_SET_067.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873583/OP_SET_067.png?format=webp&quality=80" alt="One Piece - Set de 6 Figuras" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_SET_067')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-set-de-6-figuras-OP_SET_067.html'">One Piece - Set de 6 Figuras</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 49.00</span>
+                    <span class="inflated-price">S/ 58.80</span>
+                    <span class="discount-tag">-20%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_SET_067')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_SET_067')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_SET_067')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-tipo="figura">
+            <div class="product-badges">
+                
+                <span class="badge discount">-30%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-roronoa-zoro-OP_FIG_068.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873583/OP_FIG_068.png?format=webp&quality=80" alt="One Piece - Roronoa Zoro" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_FIG_068')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-roronoa-zoro-OP_FIG_068.html'">One Piece - Roronoa Zoro</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 35.00</span>
+                    <span class="inflated-price">S/ 45.50</span>
+                    <span class="discount-tag">-30%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_FIG_068')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_FIG_068')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_FIG_068')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-tipo="figura">
+            <div class="product-badges">
+                
+                <span class="badge discount">-40%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-sanji-OP_FIG_069.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873582/OP_FIG_069.png?format=webp&quality=80" alt="One Piece - Sanji" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_FIG_069')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-sanji-OP_FIG_069.html'">One Piece - Sanji</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 35.00</span>
+                    <span class="inflated-price">S/ 49.00</span>
+                    <span class="discount-tag">-40%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_FIG_069')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_FIG_069')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_FIG_069')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-tipo="figura">
+            <div class="product-badges">
+                
+                <span class="badge discount">-50%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-portgas-d-ace-OP_FIG_070.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873582/OP_FIG_070.png?format=webp&quality=80" alt="One Piece - Portgas D. Ace" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_FIG_070')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-portgas-d-ace-OP_FIG_070.html'">One Piece - Portgas D. Ace</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 30.00</span>
+                    <span class="inflated-price">S/ 45.00</span>
+                    <span class="discount-tag">-50%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_FIG_070')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_FIG_070')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_FIG_070')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-tipo="vehiculo">
+            <div class="product-badges">
+                <span class="badge vehiculo"><i class="fas fa-car"></i> VEHÍCULO</span>
+                <span class="badge discount">-20%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-barco-thousand-sunny-OP_VEH_071.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873581/OP_VEH_071.png?format=webp&quality=80" alt="One Piece - Barco Thousand Sunny" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_VEH_071')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-barco-thousand-sunny-OP_VEH_071.html'">One Piece - Barco Thousand Sunny</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 24.00</span>
+                    <span class="inflated-price">S/ 28.80</span>
+                    <span class="discount-tag">-20%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_VEH_071')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_VEH_071')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_VEH_071')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-card" data-tipo="vehiculo">
+            <div class="product-badges">
+                <span class="badge vehiculo"><i class="fas fa-car"></i> VEHÍCULO</span>
+                <span class="badge discount">-30%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/one-piece-barco-going-merry-OP_VEH_072.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873582/OP_VEH_072.png?format=webp&quality=80" alt="One Piece - Barco Going Merry" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('OP_VEH_072')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/one-piece-barco-going-merry-OP_VEH_072.html'">One Piece - Barco Going Merry</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 24.00</span>
+                    <span class="inflated-price">S/ 31.20</span>
+                    <span class="discount-tag">-30%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('OP_VEH_072')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('OP_VEH_072')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('OP_VEH_072')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section"><h4>AME FIGURES</h4><p>Tu tienda de figuras coleccionables en Perú.</p></div>
+            <div class="footer-section"><h4>Enlaces</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="dragon-ball.html">Dragon Ball</a></li><li><a href="one-piece.html">One Piece</a></li><li><a href="pokemon.html">Pokémon</a></li></ul></div>
+            <div class="footer-section"><h4>Contacto</h4><ul><li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/51922511532">+51 922 511 532</a></li></ul></div>
+            <div class="footer-section"><h4>Pago</h4><div class="payment-methods"><span>Yape</span></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 AME Figures - Hecho en Perú 🇵🇪</p></div>
+    </footer>
+    
+    <a href="https://wa.me/51922511532?text=Hola%20AME%20Figures%2C%20vi%20la%20categor%C3%ADa%20de%20One%20Piece%20y%20estoy%20interesado" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/productos.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const allProducts = document.querySelectorAll('.product-card');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                allProducts.forEach(product => {
+                    if (filter === 'todos') { product.style.display = ''; }
+                    else {
+                        const tipo = product.dataset.tipo;
+                        if (filter === 'figuras' && tipo === 'figura') product.style.display = '';
+                        else if (filter === 'set' && tipo === 'set') product.style.display = '';
+                        else if (filter === 'vehiculos' && tipo === 'vehiculo') product.style.display = '';
+                        else if (filter === 'lamparas' && tipo === 'lampara') product.style.display = '';
+                        else product.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.getElementById('scrollTop');
+            if (scrollTop) scrollTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+        });
+        document.getElementById('scrollTop').style.display = 'none';
+        
+        function verImagenes(id) {
+            const producto = productos.find(p => p.id === id);
+            if (producto && producto.imagenes && producto.imagenes.length) {
+                Swal.fire({
+                    imageUrl: producto.imagenes[0],
+                    imageAlt: producto.nombre,
+                    title: producto.nombre,
+                    background: '#1a1a2e',
+                    color: 'white',
+                    confirmButtonColor: '#ff6b00'
+                });
+            }
+        }
+        window.verImagenes = verImagenes;
+    </script>
+</body>
+</html>

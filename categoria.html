@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+    <!-- TÍTULO DINÁMICO OPTIMIZADO PARA SEO -->
+    <title>{{TITULO}}</title>
+
+    <!-- META DESCRIPTION OPTIMIZADA -->
+    <meta name="description" content="{{DESCRIPCION}}">
+
+    <!-- KEYWORDS OPTIMIZADAS -->
+    <meta name="keywords" content="{{KEYWORDS}}">
+
+    <meta name="author" content="AME Figures">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{CANONICAL_URL}}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{OG_URL}}">
+    <meta property="og:title" content="{{OG_TITLE}}">
+    <meta property="og:description" content="{{OG_DESCRIPTION}}">
+    <meta property="og:image" content="{{OG_IMAGE}}">
+    <meta property="og:site_name" content="AME Figures">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{OG_TITLE}}">
+    <meta name="twitter:description" content="{{OG_DESCRIPTION}}">
+    <meta name="twitter:image" content="{{OG_IMAGE}}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff6b00'>🐉</text></svg>">
+    <meta name="theme-color" content="#ff6b00">
+
+    <!-- Fonts & CSS -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilo.css">
+
+    <style>
+        /* ============================================
+           ESTILOS ESPECÍFICOS PARA PÁGINA DE CATEGORÍA
+        ============================================ */
+
+        /* Header de categoría */
+        .category-hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 107, 0, 0.2) 100%);
+            padding: 60px 30px;
+            text-align: center;
+            margin: 20px 30px 40px;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(255, 107, 0, 0.3);
+        }
+
+        .category-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .category-hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+
+        .category-stats {
+            display: inline-block;
+            background: rgba(255, 107, 0, 0.15);
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--primary);
+            border: 1px solid rgba(255, 107, 0, 0.3);
+        }
+
+        .category-stats i {
+            margin-right: 8px;
+        }
+
+        /* Filtros de subcategoría */
+        .subcategory-filters {
+            max-width: 1400px;
+            margin: 0 auto 30px;
+            padding: 0 30px;
+        }
+
+        .filter-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: rgba(255, 107, 0, 0.08);
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            border-radius: 30px;
+            color: white;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gradient);
+            border-color: transparent;
+        }
+
+        /* Grid de productos */
+        .category-products {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px 50px;
+        }
+
+        /* Breadcrumbs */
+        .category-breadcrumbs {
+            max-width: 1400px;
+            margin: 20px auto 0;
+            padding: 0 30px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .category-breadcrumbs a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .category-breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mensaje sin productos */
+        .no-products {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(255, 107, 0, 0.05);
+            border-radius: var(--border-radius-lg);
+            border: 2px dashed rgba(255, 107, 0, 0.3);
+        }
+
+        .no-products i {
+            font-size: 60px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .no-products h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .no-products p {
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .category-hero {
+                margin: 15px 15px 30px;
+                padding: 40px 20px;
+            }
+
+            .category-hero h1 {
+                font-size: 32px;
+            }
+
+            .category-hero p {
+                font-size: 14px;
+            }
+
+            .subcategory-filters {
+                padding: 0 15px;
+            }
+
+            .category-products {
+                padding: 0 15px 40px;
+            }
+
+            .filter-btn {
+                padding: 6px 15px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-hero h1 {
+                font-size: 24px;
+            }
+
+            .filter-buttons {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 5px 12px;
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Efectos de fondo -->
+    <div class="noise"></div>
+    <div class="gradient-bg"></div>
+
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-wrapper" onclick="window.location.href='../index.html'">
+                <div class="logo-icon"><i class="fas fa-dragon"></i></div>
+                <div class="logo-text">
+                    <h1>AME FIGURES</h1>
+                    <p>Colección Premium</p>
+                </div>
+            </div>
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Busca tu personaje favorito...">
+                </div>
+            </div>
+            <div class="cart-wrapper">
+                <div class="cart-button" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <div class="cart-preview" id="cartPreview">
+                    <div class="preview-header"><span>Últimos añadidos</span><span onclick="toggleCart()">Ver todo <i
+                                class="fas fa-arrow-right"></i></span></div>
+                    <div class="preview-items" id="cartPreviewItems"></div>
+                    <div class="preview-footer"><span>Total:</span><span class="preview-total" id="cartPreviewTotal">S/
+                            0.00</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMBS -->
+    <div class="category-breadcrumbs">
+        <a href="../index.html">Inicio</a> <i class="fas fa-chevron-right" style="font-size: 10px; margin: 0 8px;"></i>
+        <span>{{CATEGORIA_NOMBRE}}</span>
+    </div>
+
+    <!-- HEADER DE CATEGORÍA -->
+    <div class="category-hero">
+        <h1><i class="fas fa-tag"></i> Figuras de {{CATEGORIA_NOMBRE}}</h1>
+        <p>Descubre nuestra colección exclusiva de figuras de {{CATEGORIA_NOMBRE}}. Calidad premium, detalles únicos y
+            envíos a todo Perú.</p>
+        <div class="category-stats">
+            <i class="fas fa-box"></i> {{PRODUCTOS_COUNT}} productos disponibles
+        </div>
+    </div>
+
+    <!-- FILTROS POR SUBCATEGORÍA (si existen) -->
+    <div class="subcategory-filters" id="subcategoryFilters" style="display: {{FILTERS_DISPLAY}};">
+        <div class="filter-label">
+            <i class="fas fa-filter"></i> Filtrar por tipo:
+        </div>
+        <div class="filter-buttons" id="filterButtons">
+            {{FILTER_BUTTONS}}
+        </div>
+    </div>
+
+    <!-- GRID DE PRODUCTOS -->
+    <div class="category-products">
+        <div class="products-grid" id="productsGrid">
+            {{PRODUCTOS_GRID}}
+        </div>
+    </div>
+
+    <!-- SECCIÓN WHATSAPP DINÁMICA -->
+    <section class="wa-dynamic-section">
+        <div class="wa-parallax">
+            <div class="wa-content">
+                <i class="fab fa-whatsapp"></i>
+                <h2>¿BUSCAS ALGO <span>ESPECIAL</span>?</h2>
+                <p>¿No encuentras lo que buscas? Escríbenos y te ayudamos a encontrar esa figura especial.</p>
+                <a href="https://wa.me/51922511532?text=*¡Hola!%20Quiero%20encontrar%20una%20figura%20especial*%20🔍%0A%0AEstoy%20buscando%20una%20figura%20de%20{{CATEGORIA_URL}}%20en%20particular%20y%20no%20la%20encuentro%20en%20la%20web.%0A%0A✨%20*Figura%20que%20busco:*%0A📌%20Nombre:%0A📏%20Tamaño:%0A🎯%20Personaje:%0A%0A¿Me%20podrían%20ayudar%20a%20conseguirla%3F%20¡Gracias!%20😊"
+                    class="btn-wa-large" target="_blank">
+                    <i class="fab fa-whatsapp"></i> ¡CONSULTAR AHORA!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>AME FIGURES</h3>
+                <p>Más que figuras, son recuerdos. Tu tienda de coleccionables en Perú.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" onclick="enviarWhatsAppFlotante(); return false;" aria-label="WhatsApp"><i
+                            class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="#" onclick="verNovedadesWhatsApp(); return false;">Novedades</a></li>
+                    <li><a href="#" onclick="verOfertasWhatsApp(); return false;">Ofertas</a></li>
+                    <li><a href="dragon-ball.html">Dragon Ball</a></li>
+                    <li><a href="one-piece.html">One Piece</a></li>
+                    <li><a href="pokemon.html">Pokémon</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><i class="fab fa-whatsapp"></i> <a href="#" onclick="contactoWhatsApp(); return false;">+51 922
+                            511 532</a></li>
+                    <li><i class="fas fa-envelope"></i> amefigures@gmail.com</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Pago</h4>
+                <div class="payment-methods"><span>Yape</span></div>
+                <div class="security-badges"><i class="fas fa-lock"></i> 100% Seguro</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AME Figures - Hecho en Perú 🇵🇪</p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOTANTE -->
+    <a href="#" onclick="enviarWhatsAppFlotante(); return false;" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- SCROLL TOP -->
+    <div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- TOAST CONTAINER -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- MODAL DEL CARRITO -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-container">
+            <div class="cart-header">
+                <h2><i class="fas fa-shopping-cart"></i> Mi Carrito</h2>
+                <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-footer">
+                <div class="cart-total"><span>Total:</span><span class="total-amount" id="cartTotal">S/ 0.00</span>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn-whatsapp-checkout" onclick="sendOrderWhatsApp()"><i class="fab fa-whatsapp"></i>
+                        WhatsApp</button>
+                    <button class="btn-clear-cart" onclick="vaciarCarrito()"><i class="fas fa-trash"></i>
+                        Vaciar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../js/productos.js"></script>
+    <script src="../js/main.js"></script>
+
+    <script>
+        // Función para generar URL amigable (si no existe en main.js)
+        function generarUrlAmigableLocal(nombre, id) {
+            if (typeof generarUrlAmigable === 'function') {
+                return generarUrlAmigable(nombre, id);
+            }
+            return nombre
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[ñ]/g, "n")
+                .replace(/[^a-z0-9\s-]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-')
+                .replace(/^-|-$/g, '')
+                + '-' + id;
+        }
+
+        // Filtro por subcategoría
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const productsGrid = document.getElementById('productsGrid');
+            const allProducts = document.querySelectorAll('.product-card');
+
+            if (filterBtns.length > 0 && allProducts.length > 0) {
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        const filter = this.dataset.filter;
+
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+
+                        allProducts.forEach(product => {
+                            if (filter === 'todos') {
+                                product.style.display = '';
+                            } else {
+                                const tipoBadge = product.querySelector('.tipo-badge');
+                                if (tipoBadge) {
+                                    const tipoTexto = tipoBadge.textContent.toLowerCase();
+                                    if ((filter === 'set' && tipoTexto.includes('set')) ||
+                                        (filter === 'vehículos' && tipoTexto.includes('vehículo')) ||
+                                        (filter === 'lámparas' && tipoTexto.includes('lámpara')) ||
+                                        (filter === 'figuras' && !tipoBadge)) {
+                                        product.style.display = '';
+                                    } else if (filter === 'figuras' && !tipoBadge) {
+                                        product.style.display = '';
+                                    } else {
+                                        product.style.display = 'none';
+                                    }
+                                } else if (filter === 'figuras') {
+                                    product.style.display = '';
+                                } else {
+                                    product.style.display = 'none';
+                                }
+                            }
+                        });
+                    });
+                });
+            }
+
+            // Ocultar loader
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                if (loader) loader.classList.add('hidden');
+            }, 500);
+
+            // Inicializar AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ duration: 600, once: true });
+            }
+        });
+
+        // Función para ver imágenes (si no existe)
+        function verImagenes(id) {
+            if (typeof verImagenesGlobal === 'function') {
+                verImagenesGlobal(id);
+            } else if (typeof productos !== 'undefined') {
+                const producto = productos.find(p => p.id === id);
+                if (producto && producto.imagenes && producto.imagenes.length > 0) {
+                    Swal.fire({
+                        imageUrl: producto.imagenes[0],
+                        imageAlt: producto.nombre,
+                        title: producto.nombre,
+                        background: '#1a1a2e',
+                        color: 'white',
+                        confirmButtonColor: '#ff6b00',
+                        showCloseButton: true
+                    });
+                }
+            }
+        }
+
+        // Exponer funciones
+        window.verImagenes = verImagenes;
+    </script>
+</body>
+
+</html>

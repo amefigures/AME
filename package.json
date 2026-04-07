@@ -1,0 +1,10 @@
+{
+  "name": "ame-figures",
+  "version": "1.0.0",
+  "description": "Tienda de figuras coleccionables",
+  "scripts": {
+    "build": "node js/generate-pages.js"
+  },
+  "author": "AME Figures",
+  "license": "ISC"
+}

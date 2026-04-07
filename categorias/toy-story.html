@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Figuras de Toy Story | AME Figures</title>
+    <meta name="description" content="Compra figuras de Toy Story originales. Tenemos 1 productos disponibles. Envíos a todo Perú.">
+    <link rel="canonical" href="https://amefigures.github.io/AME/categorias/toy-story.html">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff6b00'>🐉</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <style>
+        .category-filters { max-width: 1400px; margin: 0 auto 30px; padding: 0 30px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .filter-btn { padding: 8px 20px; background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.3); border-radius: 30px; color: white; cursor: pointer; transition: all 0.3s; }
+        .filter-btn:hover, .filter-btn.active { background: #ff6b00; border-color: #ff6b00; }
+        .category-header { background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(255,107,0,0.2)); padding: 50px 30px; text-align: center; margin: 20px 30px 30px; border-radius: 20px; }
+        .category-header h1 { font-size: 2.5rem; margin-bottom: 15px; background: linear-gradient(135deg, #fff, #ffcc88); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .category-stats { display: inline-block; background: rgba(255,107,0,0.2); padding: 8px 20px; border-radius: 50px; }
+        .products-grid { max-width: 1400px; margin: 0 auto; padding: 0 30px 50px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
+        @media (max-width: 768px) { .category-header { margin: 15px 15px 20px; padding: 30px 20px; } .category-header h1 { font-size: 1.8rem; } .category-filters { padding: 0 15px; } .products-grid { padding: 0 15px 40px; gap: 15px; grid-template-columns: repeat(2, 1fr); } }
+        .breadcrumbs { padding: 20px 30px; font-size: 0.85rem; color: #aaa; max-width: 1400px; margin: 0 auto; }
+        .breadcrumbs a { color: #ff8c33; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="gradient-bg"></div>
+    
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-wrapper" onclick="window.location.href='../index.html'">
+                <div class="logo-icon"><i class="fas fa-dragon"></i></div>
+                <div class="logo-text"><h1>AME FIGURES</h1><p>Colección Premium</p></div>
+            </div>
+            <div class="cart-wrapper">
+                <div class="cart-button" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="breadcrumbs">
+        <a href="../index.html">Inicio</a> &gt;
+        <span>Toy Story</span>
+    </div>
+    
+    <div class="category-header">
+        <h1><i class="fas fa-tag"></i> Figuras de Toy Story</h1>
+        <p>Descubre nuestra colección exclusiva de figuras de Toy Story. Calidad premium y envíos a todo Perú.</p>
+        <div class="category-stats"><i class="fas fa-box"></i> 1 productos disponibles</div>
+    </div>
+    
+    <div class="category-filters"><button class="filter-btn active" data-filter="todos">Todos (1)</button><button class="filter-btn" data-filter="set">Sets</button></div>
+    
+    <div class="products-grid" id="productsGrid">
+        
+        <div class="product-card" data-tipo="set">
+            <div class="product-badges">
+                <span class="badge set"><i class="fas fa-cubes"></i> SET</span>
+                <span class="badge discount">-20%</span>
+                
+            </div>
+            <div class="product-image" onclick="window.location.href='../productos/toy-story-set-de-8-figuras-TS_SET_113.html'">
+                <div class="image-container">
+                    <img src="https://res.cloudinary.com/dwjiqcuin/image/upload/v1772872503/TS_SET_113.png?format=webp&quality=80" alt="Toy Story - Set de 8 Figuras" class="active" loading="lazy">
+                </div>
+                <div class="quick-view-overlay">
+                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('TS_SET_113')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title" onclick="window.location.href='../productos/toy-story-set-de-8-figuras-TS_SET_113.html'">Toy Story - Set de 8 Figuras</h3>
+                <div class="stock-progress">
+                    <div class="stock-bar"><div class="stock-fill" style="width: 30%"></div></div>
+                    <span class="stock-text"><i class="fas fa-box"></i> 3 und.</span>
+                </div>
+                <div class="price-wrapper">
+                    <span class="offer-price">S/ 40.00</span>
+                    <span class="inflated-price">S/ 48.00</span>
+                    <span class="discount-tag">-20%</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-add" onclick="agregarAlCarrito('TS_SET_113')"><i class="fas fa-cart-plus"></i></button>
+                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('TS_SET_113')"><i class="fab fa-whatsapp"></i></button>
+                    <button class="btn-quick-buy" onclick="compraRapida('TS_SET_113')"><i class="fas fa-bolt"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section"><h4>AME FIGURES</h4><p>Tu tienda de figuras coleccionables en Perú.</p></div>
+            <div class="footer-section"><h4>Enlaces</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="dragon-ball.html">Dragon Ball</a></li><li><a href="one-piece.html">One Piece</a></li><li><a href="pokemon.html">Pokémon</a></li></ul></div>
+            <div class="footer-section"><h4>Contacto</h4><ul><li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/51922511532">+51 922 511 532</a></li></ul></div>
+            <div class="footer-section"><h4>Pago</h4><div class="payment-methods"><span>Yape</span></div></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 AME Figures - Hecho en Perú 🇵🇪</p></div>
+    </footer>
+    
+    <a href="https://wa.me/51922511532?text=Hola%20AME%20Figures%2C%20vi%20la%20categor%C3%ADa%20de%20Toy%20Story%20y%20estoy%20interesado" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/productos.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const allProducts = document.querySelectorAll('.product-card');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                allProducts.forEach(product => {
+                    if (filter === 'todos') { product.style.display = ''; }
+                    else {
+                        const tipo = product.dataset.tipo;
+                        if (filter === 'figuras' && tipo === 'figura') product.style.display = '';
+                        else if (filter === 'set' && tipo === 'set') product.style.display = '';
+                        else if (filter === 'vehiculos' && tipo === 'vehiculo') product.style.display = '';
+                        else if (filter === 'lamparas' && tipo === 'lampara') product.style.display = '';
+                        else product.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.getElementById('scrollTop');
+            if (scrollTop) scrollTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+        });
+        document.getElementById('scrollTop').style.display = 'none';
+        
+        function verImagenes(id) {
+            const producto = productos.find(p => p.id === id);
+            if (producto && producto.imagenes && producto.imagenes.length) {
+                Swal.fire({
+                    imageUrl: producto.imagenes[0],
+                    imageAlt: producto.nombre,
+                    title: producto.nombre,
+                    background: '#1a1a2e',
+                    color: 'white',
+                    confirmButtonColor: '#ff6b00'
+                });
+            }
+        }
+        window.verImagenes = verImagenes;
+    </script>
+</body>
+</html>

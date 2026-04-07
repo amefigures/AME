@@ -1,0 +1,12 @@
+# robots.txt para AME Figures
+# Permite a todos los robots acceder al sitio
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://amefigures.github.io/AME/sitemap.xml
+
+# Rutas a excluir (por si acaso)
+Disallow: /js/
+Disallow: /css/
+Disallow: /images/
