@@ -12,6 +12,7 @@ const DOMAIN = 'https://amefigures.github.io/AME';
 const PRODUCTOS_JS_PATH = path.join(__dirname, 'productos.js');
 const CATEGORIAS_DIR = path.join(__dirname, '../categorias/');  
 const SITEMAP_PATH = path.join(__dirname, '../sitemap.xml');   
+
 // ============================================
 // LEER PRODUCTOS.JS
 // ============================================
@@ -177,11 +178,15 @@ productos.forEach((producto, index) => {
     if (imagenesArray.length > 0) {
         imagenesArray.slice(0, 5).forEach(img => {
             if (img && img.trim()) {
+                // ✅ ESCAPAR CARACTERES ESPECIALES PARA XML
+                const tituloSeguro = producto.nombre.replace(/&/g, '&amp;').replace(/°/g, '&deg;');
+                const captionSeguro = producto.descripcion.substring(0, 100).replace(/&/g, '&amp;').replace(/°/g, '&deg;');
+                
                 sitemap += `
     <image:image>
       <image:loc>${img.trim()}?format=webp&quality=80</image:loc>
-      <image:title>${producto.nombre}</image:title>
-      <image:caption>${producto.descripcion.substring(0, 100)}</image:caption>
+      <image:title>${tituloSeguro}</image:title>
+      <image:caption>${captionSeguro}</image:caption>
     </image:image>`;
                 productosConImagenes++;
             }
@@ -284,7 +289,7 @@ console.log(`   ${DOMAIN}/sitemap.xml`);
 // ============================================
 // CREAR robots.txt SI NO EXISTE
 // ============================================
-const ROBOTS_PATH = path.join(__dirname, '../robots.txt');  // ← CORREGIDO
+const ROBOTS_PATH = path.join(__dirname, '../robots.txt');
 if (!fs.existsSync(ROBOTS_PATH)) {
     const robotsTxt = `# robots.txt para AME Figures
 # Permite a todos los robots acceder al sitio
