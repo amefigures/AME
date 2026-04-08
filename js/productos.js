@@ -1219,13 +1219,13 @@ const productos = [
     {
         id: 'MV_FIG_075',
         sku: 'MV_FIG_075',
-        nombre: 'Marvel - Spider-Man',
+        nombre: 'Marvel - SpiderMan',
         tamaño: '12 cm',
         precioOferta: 35,
         descuento: 20,
         precioInflado: 42.00,
-        descripcion: 'Figura de Spider-Man de Marvel - 12 cm. El héroe arácnido de Nueva York.',
-        palabrasClave: 'Marvel, Spider Man, figura, trepamuros, Peter Parker, telaraña',
+        descripcion: 'Figura de SpiderMan de Marvel - 12 cm. El héroe arácnido de Nueva York.',
+        palabrasClave: 'Marvel, SpiderMan, figura, trepamuros, Peter Parker, telaraña',
         categoria: 'Marvel',
         categoriaPadre: 'Marvel',
         subcategoria: 'Figuras',
@@ -1235,19 +1235,19 @@ const productos = [
     {
         id: 'MV_SET_076',
         sku: 'MV_SET_076',
-        nombre: 'Marvel - Set 4 Spider-Man',
+        nombre: 'Marvel - Set 4 SpiderMan',
         tamaño: '6-8 cm',
         precioOferta: 35,
         descuento: 20,
         precioInflado: 42.00,
-        descripcion: 'Set de 4 figuras de Spider-Man - 6 a 8 cm. Diferentes versiones del héroe arácnido.',
-        palabrasClave: 'Marvel, Spider Man, set, 4 figuras, diferentes versiones',
+        descripcion: 'Set de 4 figuras de SpiderMan - 6 a 8 cm. Diferentes versiones del héroe arácnido.',
+        palabrasClave: 'Marvel, SpiderMan, set, 4 figuras, diferentes versiones',
         categoria: 'Marvel',
         categoriaPadre: 'Marvel',
         subcategoria: 'Sets',
         esSet: true,
         stock: 3,
-        imagenes: 'https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873536/MV_FIG_075.png, https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873532/MV_SET_076_1.png, https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873532/MV_SET_076_2.png'
+        imagenes: 'https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873532/MV_SET_076_1.png, https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873532/MV_SET_076_2.png'
     },
     {
         id: 'MV_SET_077',
@@ -1264,7 +1264,7 @@ const productos = [
         subcategoria: 'Sets',
         esSet: true,
         stock: 3,
-        imagenes: 'https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873532/MV_SET_076_2.png, https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873533/MV_SET_077_1.png, https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873532/MV_SET_077_2.png'
+        imagenes: 'https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873533/MV_SET_077_1.png, https://res.cloudinary.com/dwjiqcuin/image/upload/v1772873532/MV_SET_077_2.png'
     },
     {
         id: 'MV_SET_078',
