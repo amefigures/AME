@@ -783,25 +783,51 @@ function calcularTotal() {
 }
 
 // ============================================
-// FUNCIONES DE WHATSAPP
+// FUNCIONES DE WHATSAPP CON EMOJIS UNICODE (100% COMPATIBLE)
 // ============================================
 
+// Definimos emojis como cadenas Unicode (funciona en todos los navegadores y WhatsApp)
+const EMOJIS = {
+    estrella: '\u{1F31F}',   // 🌟
+    brillo: '\u{2728}',       // ✨
+    caja: '\u{1F4E6}',        // 📦
+    caraFeliz: '\u{1F60A}',    // 😊
+    dinero: '\u{1F4B0}',       // 💰
+    fuego: '\u{1F525}',        // 🔥
+    regla: '\u{1F4CF}',        // 📏
+    compras: '\u{1F6CD}',      // 🛍️
+    lista: '\u{1F4CB}',        // 📋
+    numeros: '\u{1F522}',       // 🔢
+    ubicacion: '\u{1F4CD}',     // 📍
+    telefono: '\u{1F4DE}',      // 📞
+    casa: '\u{1F3E0}',          // 🏠
+    ciudad: '\u{1F306}',        // 🌆
+    regalo: '\u{1F381}',        // 🎁
+    gema: '\u{1F48E}',          // 💎
+    rayo: '\u{26A1}'            // ⚡
+};
+
+/**
+ * 1. BOTÓN WHATSAPP EN CADA TARJETA DE PRODUCTO
+ */
 function enviarWhatsAppProducto(id) {
     const producto = productos.find(p => p.id === id);
     if (!producto) return;
     
-    const mensaje = `*¡Hola! Me interesa esta figura* 👋\n\n` +
-        `🎯 *${producto.nombre}*\n` +
-        `🔖 *Código:* ${producto.sku}\n` +
-        `📏 *Tamaño:* ${producto.tamaño || 'Estándar'}\n` +
-        `💰 *Precio:* S/ ${producto.precioOferta.toFixed(2)}\n` +
-        `🏷️ *Regular:* S/ ${producto.precioInflado.toFixed(2)} (-${producto.descuento}%)\n\n` +
-        `📦 *¿Tienen disponible?*\n` +
-        `Quedo atento, ¡gracias! 😊`;
+    const mensaje = `${EMOJIS.brillo} *¡Hola! Me interesa esta figura* ${EMOJIS.brillo}\n\n` +
+        `${EMOJIS.estrella} *${producto.nombre}*\n` +
+        `${EMOJIS.regla} *Tamaño:* ${producto.tamaño || 'Estándar'}\n` +
+        `${EMOJIS.dinero} *Precio:* S/ ${producto.precioOferta.toFixed(2)}\n` +
+        `${EMOJIS.fuego} *Regular:* S/ ${producto.precioInflado.toFixed(2)} (-${producto.descuento}%)\n\n` +
+        `${EMOJIS.caja} *¿Tienen disponible?*\n` +
+        `${EMOJIS.caraFeliz} Quedo atento, ¡gracias!`;
     
     window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
+/**
+ * 2. BOTÓN WHATSAPP EN EL CARRITO (CHECKOUT)
+ */
 function sendOrderWhatsApp() {
     if (estado.carrito.length === 0) {
         mostrarToast('El carrito está vacío', 'error');
@@ -810,93 +836,111 @@ function sendOrderWhatsApp() {
     
     const total = calcularTotal();
     
-    let mensaje = '*¡Hola! Quiero completar mi pedido* 🛒\n\n';
-    mensaje += '─────────────────────\n';
-    mensaje += '*MIS FIGURAS:*\n';
-    mensaje += '─────────────────────\n\n';
+    let mensaje = `${EMOJIS.compras} *¡Hola! Quiero completar mi pedido* ${EMOJIS.compras}\n\n`;
+    mensaje += `─────────────────────\n`;
+    mensaje += `${EMOJIS.lista} *MIS FIGURAS:*\n`;
+    mensaje += `─────────────────────\n\n`;
     
-    estado.carrito.forEach((item, index) => {
-        mensaje += `🎯 *${item.nombre}*\n`;
-        mensaje += `   🔢 Cantidad: ${item.cantidad}\n`;
-        mensaje += `   💰 Precio: S/ ${item.precioOferta.toFixed(2)}\n`;
-        mensaje += `   📦 Subtotal: S/ ${(item.precioOferta * item.cantidad).toFixed(2)}\n\n`;
+    estado.carrito.forEach((item) => {
+        mensaje += `${EMOJIS.estrella} *${item.nombre}*\n`;
+        mensaje += `   ${EMOJIS.numeros} Cantidad: ${item.cantidad}\n`;
+        mensaje += `   ${EMOJIS.dinero} Precio: S/ ${item.precioOferta.toFixed(2)}\n`;
+        mensaje += `   ${EMOJIS.caja} Subtotal: S/ ${(item.precioOferta * item.cantidad).toFixed(2)}\n\n`;
     });
     
-    mensaje += '─────────────────────\n';
-    mensaje += `💰 *TOTAL: S/ ${total.toFixed(2)}*\n`;
-    mensaje += '─────────────────────\n\n';
+    mensaje += `─────────────────────\n`;
+    mensaje += `${EMOJIS.dinero} *TOTAL: S/ ${total.toFixed(2)}*\n`;
+    mensaje += `─────────────────────\n\n`;
     
-    mensaje += '*📍 DATOS PARA EL ENVÍO:*\n';
-    mensaje += '👤 *Nombre:*\n';
-    mensaje += '📞 *Teléfono:*\n';
-    mensaje += '🏠 *Dirección:*\n';
-    mensaje += '🏙️ *Ciudad:*\n\n';
+    mensaje += `${EMOJIS.ubicacion} *DATOS PARA EL ENVÍO:*\n`;
+    mensaje += `${EMOJIS.caraFeliz} *Nombre:*\n`;
+    mensaje += `${EMOJIS.telefono} *Teléfono:*\n`;
+    mensaje += `${EMOJIS.casa} *Dirección:*\n`;
+    mensaje += `${EMOJIS.ciudad} *Ciudad:*\n\n`;
     
-    mensaje += '✨ *¡Gracias! Quedo atento.*';
+    mensaje += `${EMOJIS.brillo} *¡Gracias!* ${EMOJIS.brillo}`;
     
     window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
     toggleCart();
 }
 
+/**
+ * 3. BOTÓN WHATSAPP FLOTANTE (burbuja)
+ */
 function enviarWhatsAppFlotante() {
-    const mensaje = `*¡Hola AME Figures!* 👋\n\n` +
+    const mensaje = `${EMOJIS.caraFeliz} *¡Hola AME Figures!* ${EMOJIS.caraFeliz}\n\n` +
         `Estuve viendo su web y me gustaría consultar por algunas figuras.\n\n` +
-        `✨ *Mi consulta:*\n` +
-        `¿Podrían ayudarme? ¡Gracias! 😊`;
+        `${EMOJIS.brillo} *Mi consulta:*\n` +
+        `¿Podrían ayudarme? ¡Gracias! ${EMOJIS.brillo}`;
     
     window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
+/**
+ * 4. BOTÓN "VER OFERTAS"
+ */
 function verOfertasWhatsApp() {
-    const mensaje = `*¡Hola!* 👋 Vi que tienen ofertas en la web.\n\n` +
-        `🎁 ¿Qué figuras están en promoción?\n` +
-        `💰 ¿Hasta cuándo?\n\n` +
-        `¡Gracias! 😊`;
+    const mensaje = `${EMOJIS.fuego} *¡Hola!* ${EMOJIS.fuego} Vi que tienen ofertas en la web.\n\n` +
+        `${EMOJIS.regalo} *¿Qué figuras están en promoción?*\n` +
+        `🕒 *¿Hasta cuándo?*\n\n` +
+        `${EMOJIS.caraFeliz} ¡Gracias!`;
     
     window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
+/**
+ * 5. BOTÓN "NOVEDADES"
+ */
 function verNovedadesWhatsApp() {
-    const mensaje = `*¡Hola!* 👋 Quería consultar por las novedades.\n\n` +
-        `✨ ¿Qué figuras nuevas llegaron?\n` +
-        `🎯 ¿Qué me recomiendan?\n\n` +
-        `¡Gracias! 😊`;
+    const mensaje = `${EMOJIS.brillo} *¡Hola!* ${EMOJIS.brillo} Quería consultar por las novedades.\n\n` +
+        `${EMOJIS.estrella} *¿Qué figuras nuevas llegaron?*\n` +
+        `${EMOJIS.gema} *¿Qué me recomiendan?*\n\n` +
+        `${EMOJIS.caraFeliz} ¡Gracias!`;
     
     window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
+/**
+ * 6. BOTÓN "CONTACTO" EN FOOTER
+ */
 function contactoWhatsApp() {
-    const mensaje = `*¡Hola AME Figures!* 👋\n\n` +
+    const mensaje = `${EMOJIS.caraFeliz} *¡Hola AME Figures!* ${EMOJIS.caraFeliz}\n\n` +
         `Me gustaría contactarlos para:\n\n` +
-        `💬 *Mi consulta:*\n\n` +
-        `¡Gracias! 😊`;
+        `📝 *Mi consulta:*\n\n` +
+        `${EMOJIS.brillo} ¡Gracias! ${EMOJIS.brillo}`;
     
     window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
+/**
+ * 7. CONSULTAR PRODUCTO POR WHATSAPP (desde vista rápida)
+ */
 function consultarProductoWhatsApp(sku, nombre, precio) {
-    const mensaje = `*¡Hola! Me interesa esta figura* 👋\n\n` +
-        `🎯 *${nombre}*\n` +
-        `🔖 *Código:* ${sku}\n` +
-        `💰 *Precio:* S/ ${precio}\n\n` +
-        `📦 *¿Tienen disponible?*\n` +
-        `📍 *Mi ciudad:*\n\n` +
-        `¡Gracias! 😊`;
+    const mensaje = `${EMOJIS.brillo} *¡Hola! Me interesa esta figura* ${EMOJIS.brillo}\n\n` +
+        `${EMOJIS.estrella} *${nombre}*\n` +
+        `${EMOJIS.regla} *Código:* ${sku}\n` +
+        `${EMOJIS.dinero} *Precio:* S/ ${precio}\n\n` +
+        `${EMOJIS.caja} *¿Tienen disponible?*\n` +
+        `${EMOJIS.ubicacion} *Mi ciudad:*\n\n` +
+        `${EMOJIS.caraFeliz} ¡Gracias!`;
     
     window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
+/**
+ * 8. COMPRA RÁPIDA (botón rayo)
+ */
 function compraRapidaWhatsApp(id) {
     const producto = productos.find(p => p.id === id);
     if (!producto) return;
     
-    const mensaje = `*¡Hola! Ya decidí, quiero esta figura* ⚡\n\n` +
-        `🎯 *${producto.nombre}*\n` +
-        `🔖 *Código:* ${producto.sku}\n` +
-        `💰 *Precio:* S/ ${producto.precioOferta.toFixed(2)}\n\n` +
-        `📦 *¿Me confirmas disponibilidad y envío?*\n` +
-        `📍 *Mi ciudad:*\n\n` +
-        `¡Gracias! 😊`;
+    const mensaje = `${EMOJIS.rayo} *¡Hola! Ya decidí, quiero esta figura* ${EMOJIS.rayo}\n\n` +
+        `${EMOJIS.estrella} *${producto.nombre}*\n` +
+        `${EMOJIS.regla} *Código:* ${producto.sku}\n` +
+        `${EMOJIS.dinero} *Precio:* S/ ${producto.precioOferta.toFixed(2)}\n\n` +
+        `${EMOJIS.caja} *¿Me confirmas disponibilidad y envío?*\n` +
+        `${EMOJIS.ubicacion} *Mi ciudad:*\n\n` +
+        `${EMOJIS.caraFeliz} ¡Gracias!`;
     
     window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }

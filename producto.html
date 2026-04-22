@@ -5,61 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 
-    <!-- TÍTULO OPTIMIZADO PARA SEO -->
     <title>{{TITULO}}</title>
-
-    <!-- META DESCRIPTION OPTIMIZADA -->
     <meta name="description" content="{{DESCRIPCION}}">
-
-    <!-- KEYWORDS OPTIMIZADAS -->
     <meta name="keywords" content="{{PALABRAS_CLAVE}}">
-
     <meta name="author" content="AME Figures">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://amefigures.github.io/AME/productos/{{URL_AMIGABLE}}.html">
 
-    <!-- Open Graph / Facebook -->
     {{OG_TAGS}}
 
-    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{PRODUCTO_NOMBRE}} | AME Figures">
     <meta name="twitter:description" content="{{DESCRIPCION}}">
     <meta name="twitter:image" content="{{PRIMERA_IMAGEN}}">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff6b00'>🐉</text></svg>">
 
-    <!-- Font Awesome -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
-    <!-- SweetAlert2 -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
-
-    <!-- CSS Principal -->
     <link rel="stylesheet" href="../css/estilo.css">
 
-    <!-- Datos Estructurados Schema.org -->
     <script type="application/ld+json">
     {{SCHEMA_DATA}}
     </script>
 
     <style>
-        /* ============================================
-           ESTILOS ESPECÍFICOS PARA PÁGINA DE PRODUCTO
-           TOTALMENTE RESPONSIVE - COMPATIBLE CON MAIN.JS
-        ============================================ */
-
-        /* Contenedor principal */
+        /* Estilos específicos para la página de producto (complementan los globales) */
         .product-detail {
             max-width: 1400px;
             margin: 40px auto;
@@ -69,7 +49,6 @@
             gap: 40px;
         }
 
-        /* Galería de imágenes */
         .product-gallery {
             position: sticky;
             top: 100px;
@@ -99,7 +78,6 @@
             transform: scale(1.05);
         }
 
-        /* Miniaturas */
         .gallery-thumbs {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -129,7 +107,6 @@
             object-fit: cover;
         }
 
-        /* Información del producto */
         .product-info-detail {
             padding: 20px 0;
         }
@@ -177,7 +154,6 @@
             font-size: 18px;
         }
 
-        /* Precios */
         .price-detail {
             display: flex;
             align-items: center;
@@ -220,7 +196,6 @@
             color: white;
         }
 
-        /* Stock info */
         .stock-info {
             background: rgba(255, 107, 0, 0.05);
             padding: 20px;
@@ -254,12 +229,6 @@
             gap: 10px;
         }
 
-        .stock-info i {
-            color: var(--primary);
-            margin-right: 5px;
-        }
-
-        /* Banner de confianza */
         .trust-banner {
             background: linear-gradient(135deg, #1a1a2e, #16213e);
             border: 1px solid rgba(255, 107, 0, 0.3);
@@ -273,7 +242,7 @@
             gap: 15px;
         }
 
-        .trust-banner .trust-item {
+        .trust-item {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -281,12 +250,11 @@
             color: #aaa;
         }
 
-        .trust-banner .trust-item i {
+        .trust-item i {
             font-size: 18px;
             color: #4caf50;
         }
 
-        /* Banner de YAPE */
         .yape-banner {
             background: linear-gradient(135deg, #004481, #003366);
             border-radius: var(--border-radius-md);
@@ -305,23 +273,23 @@
             transform: translateY(-3px);
         }
 
-        .yape-banner .yape-info {
+        .yape-info {
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .yape-banner .yape-info i {
+        .yape-info i {
             font-size: 32px;
             color: #00A884;
         }
 
-        .yape-banner .yape-info span {
+        .yape-info span {
             color: white;
             font-weight: 600;
         }
 
-        .yape-banner .yape-info small {
+        .yape-info small {
             color: #aaa;
             font-size: 12px;
         }
@@ -342,11 +310,11 @@
             transform: scale(1.05);
         }
 
-        /* Botones de acción */
         .action-buttons {
             display: flex;
             gap: 15px;
             margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
         .btn-primary-detail {
@@ -409,7 +377,33 @@
             font-size: 22px;
         }
 
-        /* Descripción */
+        /* Nuevo botón de compra rápida */
+        .btn-buy-now {
+            flex: 1;
+            padding: 16px 30px;
+            background: #ff3300;
+            border: none;
+            border-radius: 15px;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 56px;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(255, 51, 0, 0.3);
+        }
+
+        .btn-buy-now:hover {
+            background: #e62e00;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 51, 0, 0.5);
+        }
+
         .product-description {
             background: rgba(255, 255, 255, 0.03);
             padding: 25px;
@@ -432,14 +426,14 @@
             margin-bottom: 20px;
         }
 
-        .product-description .features {
+        .features {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
             margin-top: 20px;
         }
 
-        .product-description .feature {
+        .feature {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -449,64 +443,46 @@
             border: 1px solid rgba(255, 107, 0, 0.2);
         }
 
-        .product-description .feature i {
+        .feature i {
             color: #4caf50;
             font-size: 16px;
         }
 
-        .product-description .feature span {
+        .feature span {
             font-size: 14px;
             color: white;
         }
 
-        /* WhatsApp flotante */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: #25D366;
-            width: 60px;
-            height: 60px;
+        /* Estilos para el carrusel de productos relacionados */
+        .related-swiper {
+            padding: 0 40px;
+            margin-bottom: 30px;
+        }
+
+        .related-swiper .swiper-slide {
+            height: auto;
+        }
+
+        .related-swiper .product-card {
+            margin: 0;
+            height: 100%;
+        }
+
+        .related-swiper .swiper-button-prev,
+        .related-swiper .swiper-button-next {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 107, 0, 0.8);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
             color: white;
-            text-decoration: none;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-            z-index: 100;
-            transition: all 0.3s;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background: #128C7E;
+        .related-swiper .swiper-button-prev:after,
+        .related-swiper .swiper-button-next:after {
+            font-size: 16px;
         }
 
-        /* ============================================
-           RESPONSIVE
-        ============================================ */
-
-        @media (max-width: 1024px) {
-            .product-detail {
-                gap: 30px;
-            }
-
-            .product-title-detail {
-                font-size: 32px;
-            }
-
-            .price-detail .offer-price {
-                font-size: 36px;
-            }
-
-            .price-detail .inflated-price {
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
             .product-detail {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -519,7 +495,7 @@
             }
 
             .gallery-thumbs {
-                grid-template-columns: repeat(5, 1fr);
+                grid-template-columns: repeat(4, 1fr);
             }
 
             .product-title-detail {
@@ -529,59 +505,25 @@
             .price-detail .offer-price {
                 font-size: 32px;
             }
-        }
-
-        @media (max-width: 768px) {
-            .product-detail {
-                margin: 20px auto;
-                padding: 0 15px;
-            }
-
-            .gallery-thumbs {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 8px;
-            }
-
-            .product-title-detail {
-                font-size: 24px;
-            }
-
-            .product-meta {
-                gap: 15px;
-                margin-bottom: 20px;
-            }
-
-            .meta-item {
-                font-size: 13px;
-            }
-
-            .price-detail .offer-price {
-                font-size: 28px;
-            }
-
-            .price-detail .inflated-price {
-                font-size: 16px;
-            }
 
             .action-buttons {
                 flex-direction: column;
-                gap: 10px;
             }
 
             .btn-primary-detail,
-            .btn-whatsapp-detail {
+            .btn-whatsapp-detail,
+            .btn-buy-now {
                 width: 100%;
             }
 
-            .trust-banner {
-                justify-content: center;
+            .related-swiper {
+                padding: 0 30px;
             }
         }
 
         @media (max-width: 480px) {
             .gallery-thumbs {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 5px;
             }
 
             .product-title-detail {
@@ -594,7 +536,7 @@
             }
 
             .price-detail .offer-price {
-                font-size: 24px;
+                font-size: 28px;
             }
 
             .product-meta {
@@ -612,71 +554,49 @@
                 text-align: center;
             }
         }
-
-        @media (max-width: 360px) {
-            .gallery-thumbs {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
     </style>
 </head>
 
 <body>
-    <!-- Loader -->
     <div class="loader" id="loader">
         <div class="spinner"></div>
     </div>
 
-    <!-- Efectos de fondo -->
     <div class="noise"></div>
     <div class="gradient-bg"></div>
 
-    <!-- HEADER -->
     <header class="main-header">
         <div class="header-container">
             <div class="logo-wrapper" onclick="window.location.href='../index.html'">
-                <div class="logo-icon">
-                    <i class="fas fa-dragon"></i>
-                </div>
+                <div class="logo-icon"><i class="fas fa-dragon"></i></div>
                 <div class="logo-text">
                     <h1>AME FIGURES</h1>
                     <p>Colección Premium</p>
                 </div>
             </div>
-
             <div class="search-container">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
                     <input type="text" id="searchInput" placeholder="Buscar por nombre...">
                 </div>
             </div>
-
-            <!-- Carrito con preview -->
             <div class="cart-wrapper">
                 <div class="cart-button" onclick="toggleCart()">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count" id="cartCount">0</span>
                 </div>
-
-                <!-- Preview del carrito -->
                 <div class="cart-preview" id="cartPreview">
-                    <div class="preview-header">
-                        <span>Últimos añadidos</span>
-                        <span onclick="toggleCart()">Ver carrito completo →</span>
-                    </div>
+                    <div class="preview-header"><span>Últimos añadidos</span><span onclick="toggleCart()">Ver carrito
+                            completo →</span></div>
                     <div class="preview-items" id="cartPreviewItems"></div>
-                    <div class="preview-footer">
-                        <span>Total:</span>
-                        <span class="preview-total" id="cartPreviewTotal">S/ 0.00</span>
-                    </div>
+                    <div class="preview-footer"><span>Total:</span><span class="preview-total" id="cartPreviewTotal">S/
+                            0.00</span></div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL DEL PRODUCTO -->
     <div class="product-detail">
-        <!-- Galería de imágenes -->
         <div class="product-gallery">
             <div class="main-image">
                 <img id="mainProductImage" src="{{PRIMERA_IMAGEN}}?format=webp&quality=80"
@@ -687,10 +607,8 @@
             </div>
         </div>
 
-        <!-- Información del producto -->
         <div class="product-info-detail">
             <span class="product-category">{{CATEGORIA}}</span>
-
             <h1 class="product-title-detail">{{PRODUCTO_NOMBRE}}</h1>
 
             <div class="product-meta">
@@ -698,11 +616,11 @@
                     <i class="fas fa-ruler"></i>
                     <span>Tamaño: {{PRODUCTO_TAMAÑO}}</span>
                 </div>
-                <!-- SET badge condicional -->
                 <div class="meta-item" id="setBadge" style="display: {{ES_SET_DISPLAY}};">
                     <i class="fas fa-cubes"></i>
                     <span>Set completo</span>
                 </div>
+                
             </div>
 
             <div class="price-detail">
@@ -711,7 +629,6 @@
                 <span class="discount-tag">-{{DESCUENTO}}%</span>
             </div>
 
-            <!-- Stock info -->
             <div class="stock-info">
                 <div
                     style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
@@ -730,34 +647,22 @@
                 </div>
             </div>
 
-            <!-- Banner de confianza -->
             <div class="trust-banner">
-                <div class="trust-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Compra 100% segura</span>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-truck"></i>
-                    <span>Envíos a todo Perú</span>
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-headset"></i>
-                    <span>Atención por WhatsApp</span>
-                </div>
+                <div class="trust-item"><i class="fas fa-shield-alt"></i><span>Compra 100% segura</span></div>
+                <div class="trust-item"><i class="fas fa-truck"></i><span>Envíos a todo Perú</span></div>
+                <div class="trust-item"><i class="fas fa-headset"></i><span>Atención por WhatsApp</span></div>
             </div>
 
-            <!-- Banner de YAPE -->
             <div class="yape-banner" onclick="mostrarInfoYape()">
                 <div class="yape-info">
                     <i class="fas fa-mobile-alt"></i>
                     <div>
-                        <span>Paga con <strong>Yape</strong></span>
-                        <br>
+                        <span>Paga con <strong>Yape</strong></span><br>
                         <small>Rápido, seguro y sin comisiones</small>
                     </div>
                 </div>
                 <button class="btn-yape" onclick="event.stopPropagation(); mostrarInfoYape()">
-                    <i class="fas fa-info-circle"></i> Ver número
+                    
                 </button>
             </div>
 
@@ -765,48 +670,43 @@
                 <button class="btn-primary-detail" onclick="agregarAlCarrito('{{PRODUCTO_ID}}')" {{BOTON_DISABLED}}>
                     <i class="fas fa-cart-plus"></i> {{BOTON_TEXTO}}
                 </button>
+                <button class="btn-buy-now" onclick="compraRapidaWhatsApp('{{PRODUCTO_ID}}')">
+                    <i class="fas fa-bolt"></i> Comprar ahora
+                </button>
                 <a href="#" onclick="enviarWhatsAppProducto('{{PRODUCTO_ID}}'); return false;"
                     class="btn-whatsapp-detail">
-                    <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                    <i class="fab fa-whatsapp"></i> Consultar
                 </a>
             </div>
 
             <div class="product-description">
                 <h3><i class="fas fa-info-circle"></i> Descripción</h3>
                 <p>{{DESCRIPCION}}</p>
-
                 <div class="features">
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Material PVC de alta calidad</span>
+                    <div class="feature"><i class="fas fa-check-circle"></i><span>Material PVC de alta calidad</span>
                     </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Envíos a todo Perú</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Pago por Yape</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Atención personalizada por WhatsApp</span>
-                    </div>
+                    <div class="feature"><i class="fas fa-check-circle"></i><span>Envíos a todo Perú</span></div>
+                    <div class="feature"><i class="fas fa-check-circle"></i><span>Pago por Yape</span></div>
+                    <div class="feature"><i class="fas fa-check-circle"></i><span>Atención personalizada</span></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- PRODUCTOS RELACIONADOS -->
+    <!-- PRODUCTOS RELACIONADOS (CARRUSEL) -->
     <section class="products-section">
         <div class="section-header">
             <h2><i class="fas fa-link"></i> Productos Relacionados</h2>
             <a href="../index.html" class="view-all">Ver todos <i class="fas fa-arrow-right"></i></a>
         </div>
-        <div class="products-grid" id="relatedProductsGrid"></div>
+        <div class="swiper related-swiper">
+            <div class="swiper-wrapper" id="relatedProductsSlider"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
     </section>
 
-    <!-- MODAL DEL CARRITO -->
+    <!-- MODALES Y FOOTER (igual que antes) -->
     <div class="cart-modal" id="cartModal">
         <div class="cart-container">
             <div class="cart-header">
@@ -815,36 +715,28 @@
             </div>
             <div class="cart-items" id="cartItems"></div>
             <div class="cart-footer">
-                <div class="cart-total">
-                    <span>Total:</span>
-                    <span class="total-amount" id="cartTotal">S/ 0.00</span>
+                <div class="cart-total"><span>Total:</span><span class="total-amount" id="cartTotal">S/ 0.00</span>
                 </div>
                 <div class="cart-actions">
-                    <button class="btn-whatsapp-checkout" onclick="sendOrderWhatsApp()">
-                        <i class="fab fa-whatsapp"></i> Confirmar pedido
-                    </button>
-                    <button class="btn-clear-cart" onclick="vaciarCarrito()">
-                        <i class="fas fa-trash"></i> Vaciar
-                    </button>
+                    <button class="btn-whatsapp-checkout" onclick="sendOrderWhatsApp()"><i class="fab fa-whatsapp"></i>
+                        Confirmar pedido</button>
+                    <button class="btn-clear-cart" onclick="vaciarCarrito()"><i class="fas fa-trash"></i>
+                        Vaciar</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- WHATSAPP FLOTANTE -->
     <a href="#" onclick="enviarWhatsAppFlotante(); return false;" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- SCROLL TOP -->
     <div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- TOAST CONTAINER -->
     <div class="toast-container" id="toastContainer"></div>
 
-    <!-- FOOTER -->
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-section">
@@ -886,24 +778,20 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../js/productos.js"></script>
     <script src="../js/main.js"></script>
 
     <script>
-        // Función para cambiar la imagen principal
         function cambiarImagenPrincipal(url, elemento) {
             const mainImage = document.getElementById('mainProductImage');
-            if (mainImage) {
-                mainImage.src = url;
-            }
+            if (mainImage) mainImage.src = url;
             document.querySelectorAll('.gallery-thumb').forEach(thumb => thumb.classList.remove('active'));
             if (elemento) elemento.classList.add('active');
         }
 
-        // Mostrar información de Yape
         function mostrarInfoYape() {
             Swal.fire({
                 title: '<i class="fas fa-mobile-alt"></i> Paga con Yape',
@@ -931,96 +819,96 @@
             });
         }
 
-        // Cargar productos relacionados
         document.addEventListener('DOMContentLoaded', function () {
             let categoria = '{{CATEGORIA}}';
             const productoActual = '{{PRODUCTO_ID}}';
 
             if (typeof productos !== 'undefined' && window.location.pathname.includes('productos')) {
                 const productoActualObj = productos.find(p => p.id === productoActual);
-                if (productoActualObj) {
-                    categoria = productoActualObj.categoriaPadre || productoActualObj.categoria;
-                }
+                if (productoActualObj) categoria = productoActualObj.categoriaPadre || productoActualObj.categoria;
 
-                const relacionados = productos
-                    .filter(p => {
-                        const catPadre = p.categoriaPadre || p.categoria;
-                        return catPadre === categoria && p.id !== productoActual;
-                    })
-                    .slice(0, 4);
+                const relacionados = productos.filter(p => {
+                    const catPadre = p.categoriaPadre || p.categoria;
+                    return catPadre === categoria && p.id !== productoActual;
+                }).slice(0, 10); // hasta 10 para el carrusel
 
-                const grid = document.getElementById('relatedProductsGrid');
-
-                if (relacionados.length > 0 && grid) {
-                    grid.innerHTML = relacionados.map(p => {
+                const sliderContainer = document.getElementById('relatedProductsSlider');
+                if (relacionados.length > 0 && sliderContainer) {
+                    sliderContainer.innerHTML = relacionados.map(p => {
                         let imagenesArray = [];
                         if (typeof p.imagenes === 'string') {
                             imagenesArray = p.imagenes.split(',').map(url => url.trim()).filter(url => url);
                         } else if (Array.isArray(p.imagenes)) {
                             imagenesArray = p.imagenes;
                         }
-
                         const totalImagenes = imagenesArray.length;
-                        const urlAmigable = generarUrlAmigable ? generarUrlAmigable(p.nombre, p.id) :
-                            p.nombre.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + p.id;
-
+                        const urlAmigable = generarUrlAmigable ? generarUrlAmigable(p.nombre, p.id) : p.nombre.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + p.id;
                         const tieneEnvioGratis = p.precioOferta >= 100;
                         const stockPorcentaje = Math.min(100, (p.stock / 10) * 100);
 
                         let tipoBadge = '';
-                        if (p.esSet) {
-                            tipoBadge = '<span class="badge set"><i class="fas fa-cubes"></i> SET</span>';
-                        } else if (p.subcategoria === 'Vehículos') {
-                            tipoBadge = '<span class="badge vehiculo"><i class="fas fa-car"></i> VEHÍCULO</span>';
-                        } else if (p.subcategoria === 'Lámparas') {
-                            tipoBadge = '<span class="badge lampara"><i class="fas fa-lightbulb"></i> LÁMPARA</span>';
-                        }
+                        if (p.esSet) tipoBadge = '<span class="badge set"><i class="fas fa-cubes"></i> SET</span>';
+                        else if (p.subcategoria === 'Vehículos') tipoBadge = '<span class="badge vehiculo"><i class="fas fa-car"></i> VEHÍCULO</span>';
+                        else if (p.subcategoria === 'Lámparas') tipoBadge = '<span class="badge lampara"><i class="fas fa-lightbulb"></i> LÁMPARA</span>';
 
-                        const imagenesHTML = imagenesArray.map((img, index) => {
-                            return `<img src="${img}?format=webp&quality=80" loading="lazy" alt="${p.nombre}" class="${index === 0 ? 'active' : ''}" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x300/ff6b00/ffffff?text=AME'">`;
-                        }).join('');
+                        const imagenesHTML = imagenesArray.map((img, idx) => `<img src="${img}?format=webp&quality=80" loading="lazy" alt="${p.nombre}" class="${idx === 0 ? 'active' : ''}" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x300/ff6b00/ffffff?text=AME'">`).join('');
 
                         return `
-                        <div class="product-card" data-id="${p.id}">
-                            <div class="product-badges">
-                                ${tipoBadge}
-                                <span class="badge discount">-${p.descuento}%</span>
-                                ${tieneEnvioGratis ? '<span class="badge free-shipping"><i class="fas fa-truck"></i> ENVÍO GRATIS</span>' : ''}
-                            </div>
-                            <div class="product-image" onclick="window.location.href='${urlAmigable}.html'">
-                                <div class="image-container">${imagenesHTML}</div>
-                                ${totalImagenes > 1 ? '<span class="multi-image-badge"><i class="fas fa-images"></i> ' + totalImagenes + '</span>' : ''}
-                                <div class="quick-view-overlay">
-                                    <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('${p.id}')">
-                                        <i class="fas fa-search-plus"></i>
-                                    </button>
+                            <div class="swiper-slide">
+                                <div class="product-card" data-id="${p.id}">
+                                    <div class="product-badges">
+                                        ${tipoBadge}
+                                        <span class="badge discount">-${p.descuento}%</span>
+                                        ${tieneEnvioGratis ? '<span class="badge free-shipping"><i class="fas fa-truck"></i> ENVÍO GRATIS</span>' : ''}
+                                    </div>
+                                    <div class="product-image" onclick="window.location.href='${urlAmigable}.html'">
+                                        <div class="image-container">${imagenesHTML}</div>
+                                        ${totalImagenes > 1 ? '<span class="multi-image-badge"><i class="fas fa-images"></i> ' + totalImagenes + '</span>' : ''}
+                                        <div class="quick-view-overlay">
+                                            <button class="quick-view-btn" onclick="event.stopPropagation(); verImagenes('${p.id}')">
+                                                <i class="fas fa-search-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="product-info">
+                                        <h3 class="product-title" onclick="window.location.href='${urlAmigable}.html'">${p.nombre}</h3>
+                                        <div class="stock-progress">
+                                            <div class="stock-bar"><div class="stock-fill" style="width: ${stockPorcentaje}%"></div></div>
+                                            <span class="stock-text"><i class="fas fa-box"></i> ${p.stock} und.</span>
+                                        </div>
+                                        <div class="price-wrapper">
+                                            <span class="offer-price">S/ ${p.precioOferta.toFixed(2)}</span>
+                                            <span class="inflated-price">S/ ${p.precioInflado.toFixed(2)}</span>
+                                            <span class="discount-tag">-${p.descuento}%</span>
+                                        </div>
+                                        <div class="product-actions">
+                                            <button class="btn-add" onclick="agregarAlCarrito('${p.id}')"><i class="fas fa-cart-plus"></i></button>
+                                            <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('${p.id}')"><i class="fab fa-whatsapp"></i></button>
+                                            <button class="btn-quick-buy" onclick="compraRapida('${p.id}')"><i class="fas fa-bolt"></i></button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-title" onclick="window.location.href='${urlAmigable}.html'">${p.nombre}</h3>
-                                <div class="stock-progress">
-                                    <div class="stock-bar"><div class="stock-fill" style="width: ${stockPorcentaje}%"></div></div>
-                                    <span class="stock-text"><i class="fas fa-box"></i> ${p.stock} und.</span>
-                                </div>
-                                <div class="price-wrapper">
-                                    <span class="offer-price">S/ ${p.precioOferta.toFixed(2)}</span>
-                                    <span class="inflated-price">S/ ${p.precioInflado.toFixed(2)}</span>
-                                    <span class="discount-tag">-${p.descuento}%</span>
-                                </div>
-                                <div class="product-actions">
-                                    <button class="btn-add" onclick="agregarAlCarrito('${p.id}')"><i class="fas fa-cart-plus"></i></button>
-                                    <button class="btn-whatsapp" onclick="enviarWhatsAppProducto('${p.id}')"><i class="fab fa-whatsapp"></i></button>
-                                    <button class="btn-quick-buy" onclick="compraRapida('${p.id}')"><i class="fas fa-bolt"></i></button>
-                                </div>
-                            </div>
-                        </div>`;
+                            </div>`;
                     }).join('');
 
-                    if (typeof iniciarCarruselImagenes === 'function') {
-                        setTimeout(iniciarCarruselImagenes, 100);
-                    }
-                } else if (grid) {
-                    grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 50px; background: rgba(255,107,0,0.05); border-radius: 30px;">No hay productos relacionados en esta categoría</p>';
+                    // Inicializar Swiper
+                    new Swiper('.related-swiper', {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                        navigation: {
+                            nextEl: '.related-swiper .swiper-button-next',
+                            prevEl: '.related-swiper .swiper-button-prev',
+                        },
+                        breakpoints: {
+                            640: { slidesPerView: 2 },
+                            768: { slidesPerView: 3 },
+                            1024: { slidesPerView: 4 }
+                        },
+                        loop: relacionados.length > 3,
+                        autoplay: { delay: 4000, disableOnInteraction: false }
+                    });
+                } else if (sliderContainer) {
+                    sliderContainer.innerHTML = '<div class="swiper-slide"><p style="text-align:center; padding:50px;">No hay productos relacionados</p></div>';
                 }
             }
 
